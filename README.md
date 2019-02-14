@@ -1,5 +1,7 @@
 Project base for simple cpp projects.
 
+The Makefile auto add all .cpp files in /src folder. No additional adding is needed.
+
 # Installation steps
 - Clone
 - Rename root folder
