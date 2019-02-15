@@ -4,8 +4,10 @@ SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(STC_DIR)/%.cpp,$(OBJ_DIR)/%.0,$(SRC_FILES))
 CPPFLAGS= -c -std=c++11
 
+input ?=
+
 # Print variables
-DELIMITER ?= --------------- 
+DELIMITER ?= ---------------
 
 compile: program
 clean: clean-files
@@ -20,9 +22,9 @@ program: $(OBJ_FILES)
 
 # Running program
 run-program:
-	@echo Running 
+	@echo Running
 	@echo $(DELIMITER)
-	@./program
+	@./program $(input)
 
 # Build project structure
 build-structure:
@@ -39,6 +41,14 @@ clean-files:
 	@rm program*
 	@echo $(DELIMITER)
 
+help:
+	@echo Help
+	@echo $(DELIMITER)
+	@echo - make: Compile program
+	@echo - run: Run program
+	@echo - compile-run: Compile and run program
+	@echo - clean: Clean all files
+	@echo - build-structure: Build the program source
+
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	g++ $(CPPFLAGS) -c -o $@ $<
-
