@@ -32,7 +32,6 @@ build-structure:
 	@echo $(DELIMITER)
 	mkdir src
 	rm -rf .git
-	rm .gitignore
 	rm README.MD
 
 # Clean output files
